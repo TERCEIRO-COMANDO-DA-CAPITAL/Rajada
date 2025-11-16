@@ -1,10 +1,2 @@
-version = "1.0.0"
-description = "Bomb.IO - Ferramenta de Rajada e Spam Personalizada"
-
-aliucord.changelog.set("""
-# 1.0.0
-* Plugin inicial Bomb.IO criado.
-* Injeção de botão de rajada estilo WhatsApp no chat.
-* Mini-painel com opções de Mensagem, Quantidade e Tempo.
-* Menu de configurações completo para temas e cores.
-""")
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.aliucord.plugins" />
