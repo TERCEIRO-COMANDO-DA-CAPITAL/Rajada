@@ -108,3 +108,82 @@ public class SettingsSheet extends BottomSheet {
 
     }
 }
+package com.aliucord.plugins;
+
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import com.aliucord.Utils;
+import com.aliucord.api.SettingsAPI;
+import com.aliucord.widgets.BottomSheet;
+import com.discord.views.CheckedSetting;
+import com.discord.views.RadioManager;
+import java.util.Arrays;
+import java.util.List;
+
+// Esta é a folha de configurações "BottomShit.java" do seu exemplo
+public class SettingsSheet extends BottomSheet {
+
+    SettingsAPI settings;
+
+    public SettingsSheet(SettingsAPI settings) {
+        this.settings = settings;
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void onViewCreated(View view, Bundle bundle) {
+        super.onViewCreated(view, bundle);
+        var context = requireContext();
+        setPadding(DimenUtils.dpToPx(20));
+
+        // --- Configurações de Aparência (Cor, Blur) ---
+        TextView titleVisual = new TextView(context);
+        titleVisual.setText("Configurações Visuais (Dinâmicas)");
+        titleVisual.setTextColor(Color.WHITE);
+        titleVisual.setTextSize(18);
+        addView(titleVisual);
+
+        // Opção de Blur (como você pediu)
+        CheckedSetting blurSetting = Utils.createCheckedSetting(context, CheckedSetting.ViewType.CHECK, "Ativar Efeito Blur (Desfoque)", "Aplica um fundo de desfoque no painel (Simulado).");
+        blurSetting.setChecked(settings.getBool("ativarBlur", false));
+        blurSetting.setOnCheckedListener(isChecked -> settings.setBool("ativarBlur", isChecked));
+        addView(blurSetting);
+
+        // Opção de Cores (como você pediu)
+        TextView titleCores = new TextView(context);
+        titleCores.setText("Cor de Fundo do Painel (ONG/PNG)");
+        titleCores.setTextColor(Color.LTGRAY);
+        titleCores.setTextSize(14);
+        addView(titleCores);
+        
+        // Gerenciador de Rádio para as cores
+        List<CheckedSetting> radios = Arrays.asList(
+                Utils.createCheckedSetting(context, CheckedSetting.ViewType.RADIO, "Padrão (Preto Transparente)", null),
+                Utils.createCheckedSetting(context, CheckedSetting.ViewType.RADIO, "Rosa (Bonitinho)", null),
+                Utils.createCheckedSetting(context, CheckedSetting.ViewType.RADIO, "Azul Discord (Blurple)", null)
+        );
+        RadioManager radioManager = new RadioManager(radios);
+        
+        // Valores das cores
+        List<String> cores = Arrays.asList("#DD222222", "#DDFF0077", "#DD5865F2");
+        String corAtual = settings.getString("corFundo", cores.get(0));
+        
+        // Define o rádio selecionado
+        radioManager.a(radios.get(cores.indexOf(corAtual)));
+
+        // Adiciona os rádios na tela
+        for (int i = 0; i < radios.size(); i++) {
+            int index = i;
+            CheckedSetting radio = radios.get(i);
+            radio.e(e -> {
+                settings.setString("corFundo", cores.get(index)); // Salva a cor dinamicamente
+                radioManager.a(radio);
+                Utils.showToast("Cor alterada! Reabra o painel.");
+            });
+            addView(radio);
+        }
+    }
+}
