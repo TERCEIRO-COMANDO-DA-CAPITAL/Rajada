@@ -202,3 +202,163 @@ Projeto estruturado seguindo padrões formais para documentação modular.
 ---
 
 FIM DO ARQUIVO
+# RAJADA — DOCUMENTAÇÃO OFICIAL  
+Form: NodeJS/Lua/Multi • GOT: T.C.C
+
+---
+
+# 1. DASHBOARD VISUAL
+
+## ▣ Gráfico de Pipeline (versão compatível)
+```mermaid
+graph LR
+A[Commit] --> B[Build]
+B --> C{Tests}
+C -->|OK| D[Deploy]
+C -->|Fail| E[Hotfix]
+```
+
+## ▣ Estrutura do Sistema (seguro p/ GitHub)
+```mermaid
+graph TD
+Core[Core Engine] --> API
+Core --> Libs
+API --> CLI
+API --> Webhooks
+CLI --> Utils
+```
+
+## ▣ Mapa Mental (versão que sempre renderiza)
+```mermaid
+mindmap
+  root((Rajada))
+    Backend
+      NodeJS
+      Lua
+    Tools
+      Webhook
+      Automation
+    Security
+      Filters
+      Sanitizers
+      LogGuard
+```
+
+## ▣ Fluxo de Requisição
+```mermaid
+sequenceDiagram
+User->>Rajada: Request
+Rajada->>Modules: Process
+Modules->>Rajada: Result
+Rajada->>User: Response
+```
+
+---
+
+# 2. ÁRVORE DO PROJETO
+
+```txt
+RAJADA/
+│
+├── src/
+│   ├── core/
+│   ├── modules/
+│   ├── api/
+│   └── utils/
+│
+├── config/
+│   └── settings.json
+│
+└── README.md
+```
+
+---
+
+# 3. ARQUIVOS IMPORTANTES
+
+### src/core/engine.js
+```js
+// Núcleo principal
+module.exports = {
+  init() {},
+  loadModules() {},
+  start() {}
+}
+```
+
+### src/api/router.js
+```js
+router.post("/execute", handler)
+```
+
+---
+
+# 4. MAPA MENTAL (versão TXT)
+```txt
+[RAJADA]
+   |— BASE
+   |     |— Estrutura
+   |     |— Config
+   |
+   |— MÓDULOS
+   |     |— Segurança
+   |     |— Execução
+   |     |— Automação
+   |
+   |— API
+   |     |— Webhook
+   |     |— Handlers
+   |
+   |— SISTEMA
+         |— CLI
+         |— Utils
+```
+
+---
+
+# 5. INTRODUÇÃO  
+O projeto RAJADA mantém uma arquitetura modular, limpa e pronta para expansão.  
+Atualmente o repositório contém apenas a infraestrutura base, organizada em diretórios formais e preparada para receber módulos futuros.
+
+---
+
+# 6. OBJETIVOS  
+> Criar base sólida  
+> Manter estrutura escalável  
+> Facilitar integração de módulos e automações  
+
+---
+
+# 7. COMPONENTES ATUAIS  
+- `/src/core/` → Motor inicial  
+- `/src/api/` → Roteadores e handlers  
+- `/src/modules/` → Espaço reservado  
+- `/config/` → Settings globais  
+
+---
+
+# 8. CAIXA VISUAL (compatível)
+```txt
+┌────────────────────────────┐
+│  RAJADA ENGINE — STATUS    │
+│────────────────────────────│
+│  • Núcleo criado           │
+│  • Estrutura pronta        │
+│  • Aguardando módulos      │
+└────────────────────────────┘
+```
+
+---
+
+# 9. TEMPLATE DE MÓDULO
+```md
+### Módulo: Nome
+Função: descrição técnica  
+Entrada: tipos aceitos  
+Saída: resultado final  
+```
+
+---
+
+# 10. NOTA FINAL  
+> Documentação reflete somente o que existe no repositório atual.
