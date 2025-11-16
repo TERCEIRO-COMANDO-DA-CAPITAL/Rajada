@@ -208,3 +208,32 @@ Rajada/
 │   └── main/             # código-fonte (Java / JavaScript)
 ├── build.gradle          # configuração de build e dependências
 └── README.md             # (substituir por este)
+# RAJADA — Documentação Oficial (Estado Atual)
+
+<div align="left">Versão: Beta • Autor: TERCEIRO-COMANDO-DA-CAPITAL • Última atualização: estado real do repositório</div>
+
+---
+
+> **Introdução** — Projeto em fase inicial. Documento mostra somente o que existe hoje: código Java/JS, build.gradle, workflows e src/main.
+
+---
+
+<div align="center">
+  <img src="https://img.shields.io/badge/STATUS-BETA-lightgrey?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/languages/top/TERCEIRO-COMANDO-DA-CAPITAL/Rajada?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/repo-size/TERCEIRO-COMANDO-DA-CAPITAL/Rajada?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/last-commit/TERCEIRO-COMANDO-DA-CAPITAL/Rajada?style=for-the-badge"/>
+</div>
+
+---
+
+## Estrutura do Repositório
+```text
+Rajada/
+  .github/workflows/     # automações
+  src/main/              # código Java/JS
+  build.gradle           # build e dependências
+  README.md              # substituível por este![Top Language](https://img.shields.io/github/languages/top/TERCEIRO-COMANDO-DA-CAPITAL/Rajada?style=flat-square)
+![Languages](https://img.shields.io/github/languages/count/TERCEIRO-COMANDO-DA-CAPITAL/Rajada?style=flat-square)
+![Code Size](https://img.shields.io/github/languages/code-size/TERCEIRO-COMANDO-DA-CAPITAL/Rajada?style=flat-square)
+![Last Commit](https://img.shields.io/github/last-commit/TERCEIRO-COMANDO-DA-CAPITAL/Rajada?style=flat-square)
